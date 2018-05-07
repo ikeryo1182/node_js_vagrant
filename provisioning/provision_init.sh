@@ -1,5 +1,5 @@
 # install wget
-yum update -y
+sudo yum update -y
 sudo yum install wget -y
 
 # install git
@@ -11,14 +11,23 @@ yes | sudo yum install git
 cd ~/
 git clone https://github.com/creationix/nvm.git ~/.nvm
 source ~/.nvm/nvm.sh
-nvm install v5.11.0
+nvm install v8.9.4
 
 # export nvm path
-echo "
+echo '
 # nvm設定
 [[ -s ~/.nvm/nvm.sh ]] && . ~/.nvm/nvm.sh
 nvm use default
 npm_dir=${NVM_PATH}_modules
 export NODE_PATH=$npm_dir
-" >> ~/.bash_profile
+' >> ~/.bash_profile
 source ~/.bash_profile
+
+# install yarn
+npm install -g yarn
+
+
+# show vesrion
+node -v
+npm -v
+yarn -v
